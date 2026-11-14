@@ -56,9 +56,9 @@ export default function Hero({ title, image, price, originalPrice, priceType }) 
         <div className={styles.heroCard}>
           {current && (
             <div className={styles.heroPrice}>
+              {original && <p className={styles.heroPriceWas}>{original}</p>}
               <p className={styles.heroPriceAmount}>{current}</p>
               {basis && <p className={styles.heroPriceBasis}>{basis}</p>}
-              {original && <p className={styles.heroPriceWas}>was {original}</p>}
             </div>
           )}
           <div className={styles.heroCta}>

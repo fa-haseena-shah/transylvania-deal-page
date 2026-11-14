@@ -193,10 +193,10 @@
 }
 
 .heroTitle {
-  color: #fff;
+  color: var(--page-bg);
   font-weight: 400;
   text-transform: uppercase;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.539);
   margin-bottom: 0;
 }
 
@@ -242,6 +242,7 @@
   font-weight: 800;
   font-size: clamp(3rem, 5vw, 5rem);
   line-height: 1;
+  margin-top: 0;
 }
 
 .heroPriceBasis {
@@ -249,11 +250,12 @@
   font-weight: 700;
   font-size: clamp(1rem, 2.25vw, 2rem);
   text-transform: uppercase;
-  line-height: 1.1;
 }
 
 .heroPriceWas {
-  font-size: clamp(0.9rem, 1.75vw, 1.75rem);
+  font-size: clamp(1.2rem, 1.75vw, 1.75rem);
+  text-decoration: line-through;
+  margin-bottom: 0;
 }
 
 .heroCta {
@@ -292,7 +294,7 @@
   }
 
   .heroPriceWas {
-    font-size: clamp(0.9rem, 1.3vw, 1.125rem);
+    font-size: clamp(1.4rem, 1.3vw, 1.125rem);
   }
 
   .heroCta .btn {
@@ -312,5 +314,69 @@
 
   .heroEmphasis {
     font-size: clamp(3.25rem, 5vw, 5rem);
+  }
+}
+
+.sectionNav {
+  margin: 0 1.25rem 0 1.25rem;
+  background: var(--page-bg);
+  color: #b96b00;
+}
+
+.sectionNavList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4, 0.5rem);
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.sectionNavItem {
+  min-width: 0;
+}
+
+.sectionNavLink {
+  display: flex;
+  min-height: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 0.5rem);
+  padding: var(--space-2, 0.5rem) 0.125rem;
+  color: inherit;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(0.8rem, 2.2vw, 1.125rem);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.sectionNavIcon {
+  width: clamp(10rem, 0vw, 0rem);
+  height: clamp(10rem, 0vw, 0rem);
+  object-fit: contain;
+}
+
+@media (min-width: 64rem) {
+  .sectionNav {
+    margin-top: var(--space-12, 1rem);
+  }
+
+  .sectionNavList {
+    max-width: 46rem;
+  }
+
+  .sectionNavLink {
+    min-height: 4.25rem;
+    gap: var(--space-1, 0.25rem);
+    font-size: 0.9rem;
+  }
+
+  .sectionNavIcon {
+    width: 7rem;
+    height: 7rem;
   }
 }
