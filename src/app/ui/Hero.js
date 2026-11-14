@@ -1,6 +1,6 @@
 import SafeImage from "./SafeImage";
 import Button from "./Button";
-import styles from "./deal-page.module.css";
+import styles from "./styles/deal-page.module.css";
 
 function formatGBP(value) {
   if (value === null || value === undefined || value === "") return null;

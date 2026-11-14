@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./deal-page.module.css";
+import styles from "./styles/deal-page.module.css";
 
 const SECTIONS = [
   { label: "Itinerary", href: "#itinerary", icon: "/ql-itinerary.png" },
@@ -8,7 +8,7 @@ const SECTIONS = [
   { label: "Payment", href: "#payment", icon: "/ql-pay.png" },
 ];
 
-export default function SectionNav() {
+export default function QuickLinks() {
   return (
     <nav className={styles.sectionNav} aria-label="Deal sections">
       <ul className={styles.sectionNavList}>

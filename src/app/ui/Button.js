@@ -1,4 +1,4 @@
-import styles from "./deal-page.module.css";
+import styles from "./styles/deal-page.module.css";
 
 export default function Button({ href, onClick, type = "button", children, ...rest }) {
     // if a link tag was passed in,

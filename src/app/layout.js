@@ -1,6 +1,6 @@
 import { Albert_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import "./ui/globals.css";
+import "./ui/styles/globals.css";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],

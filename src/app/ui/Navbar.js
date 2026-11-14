@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "./deal-page.module.css";
+import styles from "./styles/deal-page.module.css";
 
 const NAV_LINKS = [
   { label: "HOME", href: "#" },
