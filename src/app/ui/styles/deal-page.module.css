@@ -422,8 +422,10 @@
   margin-top: 1.5rem;
 }
 
-.overviewContent strong {
+.overviewContent a {
   font-weight: 700;
+  text-decoration: underline;
+  color: var(--color-orange);
 }
 
 .overviewClosing {
@@ -448,11 +450,14 @@
   .overviewContent {
     padding: 3rem 2rem;
     font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    max-width: 50rem;
   }
 }
 
 @media (min-width: 64rem) {
   .overviewStrip {
+    overflow-x: auto;
+    scrollbar-width: thin;
     gap: 0.5rem;
     padding: 1.25rem 0.75rem;
   }
@@ -464,5 +469,165 @@
   .overviewContent {
     padding-block: 4rem;
     font-size: 1.375rem;
+    max-width: 60rem;
+  }
+}
+
+.dropdownList {
+  display: grid;
+  gap: var(--space-3, 0.75rem);
+  margin-inline: 3rem;
+}
+
+.dropdownItem {
+  min-width: 0;
+}
+
+.dropdownHeading {
+  margin: 0;
+  font: inherit;
+}
+
+.dropdownTrigger {
+  display: flex;
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: var(--color-red);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownTrigger:hover {
+  background: #702b3a;
+}
+
+.dropdownTrigger:focus-visible {
+  outline-color: var(--color-orange);
+  outline-offset: 3px;
+}
+
+.dropdownItemOpen .dropdownTrigger {
+  border-radius: 0.35rem 0.35rem 0 0;
+}
+
+.dropdownLabel {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.dropdownSeparator {
+  flex: 0 0 auto;
+  font-size: 0.85em;
+}
+
+.dropdownTitle {
+  flex: 1;
+  min-width: 0;
+}
+
+.dropdownChevron {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border-right: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  transform: translateY(-0.2rem) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.dropdownItemOpen .dropdownChevron {
+  transform: translateY(0.2rem) rotate(225deg);
+}
+
+.dropdownPanel {
+  border: 1px solid var(--color-red);
+  border-top: 0;
+  background: var(--color-beige, #fffbf2);
+}
+
+.dropdownPanel[hidden] {
+  display: none;
+}
+
+.dropdownContent {
+  padding: 1.5rem clamp(1.25rem, 7vw, 2.5rem);
+  color: #111;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.dropdownContent > * + * {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .dropdownList {
+    max-width: 56rem;
+    margin-inline: auto;
+  }
+
+  .dropdownTrigger {
+    min-height: 5.5rem;
+    padding-inline: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+  .dropdownContent {
+    padding: 2rem 2.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .dropdownList {
+    max-width: 55rem;
+    gap: var(--space-3, 0.75rem);
+  }
+
+  .dropdownTrigger {
+  min-height: 4.5rem;
+  }
+}
+
+.itineraryTitle {
+  color: var(--color-red);
+  font-size: var(--text-lg);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.divider {
+  width: 100%;
+  aspect-ratio: 1512 / 199;
+  margin-block: var(--space-6, 1.5rem);
+  background-image: url("/motif-divider.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.divider {
+  margin-top: 5rem;
+}
+
+@media (min-width: 64rem) {
+  .divider {
+    margin-top: 5rem;
+    height: 6rem;
+    aspect-ratio: auto;
+    background-repeat: repeat-x;
+    background-size: auto 6rem;
   }
 }
