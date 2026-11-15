@@ -1,5 +1,5 @@
-import SafeImage from "./SafeImage";
 import Button from "./Button";
+import Carousel from "./Carousel";
 import styles from "./styles/deal-page.module.css";
 
 function formatGBP(value) {
@@ -22,9 +22,10 @@ function splitTitle(title) {
 
 const CTA_LABEL = "book now";
 const CTA_TARGET = "#enquire"; 
-const FALLBACK_ALT = "Bran Castle on a hilltop surrounded by green forest near Transylvanian Alps";
+const FALLBACK_ALT =
+  "Bran Castle on a hilltop surrounded by green forest near Transylvanian Alps";
 
-export default function Hero({ title, image, price, originalPrice, priceType }) {
+export default function Hero({ title, images = [], price, originalPrice, priceType }) {
   const { lead, emphasis } = splitTitle(title);
 
   const current = formatGBP(price);
@@ -35,13 +36,14 @@ export default function Hero({ title, image, price, originalPrice, priceType }) 
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroMedia}>
-        <SafeImage
-          src={image?.path}
-          alt={image?.alt || FALLBACK_ALT}
-          fill
-          priority
-          sizes="100vw"
-          className={styles.heroImage} />
+        <Carousel
+          images={images}
+          label={`${title} photos`}
+          fallbackAlt={FALLBACK_ALT}
+          variant="hero"
+          autoPlay
+          prioritizeFirstImage
+        />
         <div className={styles.heroOverlay} aria-hidden="true" />
 
         <div className={`${styles.container} ${styles.heroTitleWrap}`}>

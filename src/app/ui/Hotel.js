@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import SafeImage from "./SafeImage";
+import Carousel from "./Carousel";
 import Title from "./Title";
 import styles from "./styles/deal-page.module.css";
 
@@ -41,50 +41,11 @@ function AmenityGroup({ title, content }) {
 
 function HotelCard({ hotel }) {
   const images = hotel.images ?? [];
-  const [imageIndex, setImageIndex] = useState(0);
-  const descriptionId = useId();
-  const currentImage = images[imageIndex];
-
-  const showPreviousImage = () => {
-    setImageIndex((index) => (index - 1 + images.length) % images.length);
-  };
-  const showNextImage = () => {
-    setImageIndex((index) => (index + 1) % images.length);
-  };
 
   return (
     <article className={styles.hotelCard}>
       {images.length > 0 && (
-        <div
-          className={styles.hotelCarousel}
-          role="group"
-          aria-roledescription="carousel"
-          aria-label={`${hotel.name} photos`}
-        >
-          <button
-            type="button"
-            className={`${styles.hotelArrow} ${styles.hotelArrowPrevious}`}
-            aria-label={`Previous ${hotel.name} photo`}
-            onClick={showPreviousImage}
-            disabled={images.length < 2}
-          />
-          <div className={styles.hotelImageFrame}>
-            <SafeImage
-              src={currentImage.path}
-              alt={currentImage.alt || `${hotel.name} photo`}
-              fill
-              sizes="(min-width: 64rem) 50vw, 80vw"
-              className={styles.hotelImage}
-            />
-          </div>
-          <button
-            type="button"
-            className={`${styles.hotelArrow} ${styles.hotelArrowNext}`}
-            aria-label={`Next ${hotel.name} photo`}
-            onClick={showNextImage}
-            disabled={images.length < 2}
-          />
-        </div>
+        <Carousel images={images} label={`${hotel.name} photos`} />
       )}
 
       <div className={styles.hotelNameRow}>

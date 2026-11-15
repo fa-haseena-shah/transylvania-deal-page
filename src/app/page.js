@@ -4,6 +4,7 @@ import QuickLinks from "./ui/QuickLinks";
 import Overview from "./ui/Overview";
 import Itinerary from "./ui/Itinerary";
 import Hotel from "./ui/Hotel";
+import Destinations from "./ui/Destinations";
 import Divider from "./ui/Divider";
 import deal from "./lib/deal-page-data.json";
 
@@ -14,7 +15,7 @@ export default function Home() {
       <main id="main">
         <Hero
           title={deal.title}
-          image={deal.heroImages?.[0]}
+          images={deal.heroImages}
           price={deal.price}
           originalPrice={deal.farePrice}
           priceType={deal.priceType}
@@ -27,6 +28,10 @@ export default function Home() {
         <Itinerary itineraries={deal.itineraries} />
         <Divider />
         <Hotel hotels={deal.hotels} />
+        <Destinations
+          dealDestination={deal.dealDestinations[0]}
+          videoUrl={deal.secondaryVideoYoutubelink}
+        />
       </main>
     </>
   );

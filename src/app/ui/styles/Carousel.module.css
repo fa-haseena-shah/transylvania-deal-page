@@ -1,0 +1,114 @@
+.carousel {
+  position: relative;
+}
+
+.hero {
+  position: absolute;
+  inset: 0;
+}
+
+.hotel {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .frame {
+  position: absolute;
+  inset: 0;
+}
+
+.hotel .frame {
+  width: 100%;
+  aspect-ratio: 1.6;
+  border: 1px solid rgb(97 35 48 / 40%);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.arrow {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  cursor: pointer;
+}
+
+.arrow::before {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-top: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+  content: "";
+}
+
+.previous::before {
+  transform: translateX(0.1rem) rotate(-135deg);
+}
+
+.next::before {
+  transform: translateX(-0.1rem) rotate(45deg);
+}
+
+.playPause {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 3;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 55%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.pauseIcon {
+  width: 0.65rem;
+  height: 0.8rem;
+  border-right: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+
+.playIcon {
+  width: 0;
+  height: 0;
+  margin-left: 0.15rem;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.6rem solid currentColor;
+}
+
+@media (min-width: 48rem) {
+  .hotel {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+    gap: 1rem;
+  }
+
+  .hotel .frame {
+    aspect-ratio: 1.7;
+  }
+
+  .arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

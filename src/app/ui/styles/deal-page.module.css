@@ -175,12 +175,9 @@
   overflow: hidden;
 }
 
-.heroImage {
-  object-fit: cover;
-}
-
 .heroOverlay {
   position: absolute;
+  z-index: 0;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.852), rgba(0, 0, 0, 0.268) 60%);
 }
@@ -190,6 +187,7 @@
   left: 0;
   right: 0;
   bottom: calc(var(--hero-overlap) * 0.7 + var(--space-4, 1rem));
+  z-index: 2;
 }
 
 .heroTitle {
@@ -603,7 +601,7 @@
 
 .sectionTitle {
   color: var(--color-red);
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -651,59 +649,6 @@
   margin-top: 4rem;
 }
 
-.hotelCarousel {
-  display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.hotelImageFrame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1.6;
-  overflow: hidden;
-  border: 1px solid rgb(97 35 48 / 40%);
-}
-
-.hotelImage {
-  object-fit: cover;
-}
-
-.hotelArrow {
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: var(--color-red);
-  color: #fff;
-  cursor: pointer;
-}
-
-.hotelArrow:disabled {
-  cursor: default;
-  opacity: 0.5;
-}
-
-.hotelArrow::before {
-  width: 0.65rem;
-  height: 0.65rem;
-  border-top: 3px solid currentColor;
-  border-right: 3px solid currentColor;
-  content: "";
-}
-
-.hotelArrowPrevious::before {
-  transform: translateX(0.1rem) rotate(-135deg);
-}
-
-.hotelArrowNext::before {
-  transform: translateX(-0.1rem) rotate(45deg);
-}
-
 .hotelNameRow {
   display: flex;
   align-items: center;
@@ -724,11 +669,11 @@
 .hotelRating {
   flex: 0 0 auto;
   padding: 0.2rem 0.55rem;
-  border: 1px solid var(--color-red);
+  border: 2px solid var(--color-red);
   border-radius: 0.6rem;
   color: var(--color-red);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 1000;
   white-space: nowrap;
 }
 
@@ -755,6 +700,8 @@
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
   font-weight: 700;
+  font-family: var(--font-body);
+  text-transform: uppercase;
 }
 
 .hotelAmenityList ul {
@@ -777,6 +724,9 @@
   content: "✓";
 }
 
+.hotelAmenityList:not(.hotelAmenityListExpanded) li:nth-child(n + 9) {
+  display: none;
+}
 
 .hotelViewMore {
   margin-top: 1rem;
@@ -799,16 +749,6 @@
     font-size: 2rem;
   }
 
-  .hotelCarousel {
-    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
-    gap: 1rem;
-  }
-
-  .hotelArrow {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
   .hotelDescription {
     font-size: 1.05rem;
   }
@@ -823,7 +763,124 @@
     max-width: 60rem;
   }
 
-  .hotelImageFrame {
-    aspect-ratio: 1.7;
+}
+
+.destination {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--page-bg);
+  color: var(--color-blue);
+}
+
+.destinationBackdrop {
+  position: absolute;
+  z-index: -1;
+  inset: 48% 0 0;
+}
+
+.destinationBackdrop::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--page-bg) 0%,
+    rgb(255 254 252 / 70%) 35%,
+    rgb(255 254 252 / 28%) 100%
+  );
+  content: "";
+}
+
+.destinationBackgroundImage {
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.destinationContent {
+  position: relative;
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 4rem var(--gutter, 1rem) 4rem;
+  text-align: center;
+}
+
+.destinationEyebrow {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.destinationTitle {
+  color: var(--color-blue);
+}
+
+.destinationFacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  margin: 3rem auto 0;
+  color: var(--color-blue);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.destinationFacts p {
+  padding: 0;
+  text-align: center;
+}
+
+.destinationFacts strong {
+  font-weight: 700;
+}
+
+.destinationKnowMore {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--color-blue);
+  font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+}
+
+.destinationVideo {
+  width: min(100%, 32rem);
+  aspect-ratio: 16 / 9;
+  margin: 2.5rem auto 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #000;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
+}
+
+.destinationVideo iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (min-width: 48rem) {
+  .destinationContent {
+    padding-block: 5rem 5.5rem;
+  }
+
+  .destinationVideo {
+    width: min(80%, 34rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .destinationContent {
+    padding-block: 6rem;
+  }
+
+  .destinationFacts {
+    font-size: 1.2rem;
+  }
+
+  .destinationVideo {
+    width: min(75%, 38rem);
   }
 }
