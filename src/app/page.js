@@ -6,6 +6,7 @@ import Itinerary from "./ui/Itinerary";
 import Hotel from "./ui/Hotel";
 import Destinations from "./ui/Destinations";
 import Divider from "./ui/Divider";
+import Excursions from "./ui/Excursions";
 import deal from "./lib/deal-page-data.json";
 
 export default function Home() {
@@ -32,6 +33,8 @@ export default function Home() {
           dealDestination={deal.dealDestinations[0]}
           videoUrl={deal.secondaryVideoYoutubelink}
         />
+        <Excursions content={deal.excursions} 
+          defaultGroup={deal.dealDestinations?.[0]?.destination?.name} />
       </main>
     </>
   );
