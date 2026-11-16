@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an original holiday deal page for a UK audience for which research-backed interface design and development was done. In this README, I document my design and development process, and its relevant details alongside setup instructions
+This is an original holiday deal page for a UK audience for which research-backed interface design and development was done. In this README, I document my design and development process, and its relevant details, alongside setup instructions
 
 * **Objectives**: Help visitors understand what makes the holiday appealing, what is included and how to take the next step. 
 * **Target Audience**: Budgeted solo, friends or family travel groups from the UK
@@ -27,4 +27,16 @@ This is an original holiday deal page for a UK audience for which research-backe
 * Decided on visual identities by creating a moodboard, selecting typography and color palette,
 * Create high-fidelity wireframes using this design kit
 
-View my in-depth design process [here](**)
+View my in-depth design thought process [here](**)
+
+## Development
+* Content is loaded based on the data from `deal-page-data.json`. In places where the provided HTML was faulty, relevant parser functions were written in JavaScript and dangerouslySetHTML was used.
+* Reusable components i.e. Dropdown, Carousel, SafeImage, Title, Button were created
+* Each section i.e. Hero, Overview, Highlights, Itinerary, Hotel, Destinations, Excursions, Payment, Fineprint, FAQs, Testimonials has its own components, re-using the above mentioned ones
+* In page.js, abstraction is observed and the page was easily built by simply importing the component then using its relevant tag in my preferred section order.
+* Developed mobile-first and wrote media queries for medium and desktop screens
+
+**Total Time Spent** 
+- Research and Ideation : 1 day
+- Design and Wireframing : 1 day
+- Development : 3 days
