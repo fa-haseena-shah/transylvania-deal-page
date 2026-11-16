@@ -88,7 +88,6 @@ npm run start      # serve the production build
 - **Node version:** developed locally on Node v26.13.1, Netlify built with Node 24.22.2
 - **Environment variables:** none required
 * Deployment happened smoothly without any issues, referring to [Tutorials by Manizha & Ryan](https://www.youtube.com/watch?v=XE2ASE7N4ho)
-* Live site was checked across 3 mobiles phone () and desktops
 
 ## Brief Test Record
 | Check                                                                                                     | Result |
