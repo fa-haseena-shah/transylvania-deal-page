@@ -1,3 +1,4 @@
+
 # Transylvania Deal Page
 
 ## Overview
@@ -41,7 +42,11 @@ View my in-depth design thought process [here](**)
 
 ## Demo
 ### Mobile
+https://github.com/user-attachments/assets/221917f3-47ae-4ef0-b0d0-03c2c4500d0a
+
+
 ### Desktop
+https://github.com/user-attachments/assets/a88ab9ea-7141-4386-a659-9e4184811e40
 
 **Total Time Spent** 
 - Research and Ideation : 1 day
@@ -105,3 +110,6 @@ npm run start      # serve the production build
 * There is an overlap in some excursion data which was disregarded
 * Testimonials and contact details are sample content
 * Ideally, UAT must be performed on our target UK audience but since that is not available at this stage, I omit it.
+
+### Contact
+[Email](mailto:fa.haseenashah@gmail.com) ⋆ [LinkedIn](https://www.linkedin.com/in/haseena-shah-1a0a11444) ⋆ [Design](https://www.behance.net/haseenashah2d)
