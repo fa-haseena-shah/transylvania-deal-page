@@ -986,3 +986,259 @@
     font-size: 1.2rem;
   }
 }
+
+.highlights {
+  background: var(--page-bg);
+}
+
+.banner {
+  position: relative;
+  display: grid;
+  height: clamp(12.25rem, 33.333vw, 20rem);
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  isolation: isolate;
+}
+
+.bannerImage {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.bannerOverlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: rgb(0 0 0 / 42%);
+}
+
+.bannerTitle {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bannerTitle p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.2;
+}
+
+.bannerTitle h2 {
+  font-size: clamp(2.5rem, 7vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 40%);
+}
+
+.highlightsContent {
+  width: calc(100% - 2rem);
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: 4rem 1rem 3rem;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefitItem {
+  position: relative;
+  display: grid;
+  min-height: 7rem;
+  place-items: center;
+  padding: 0 1rem;
+  color: var(--color-orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.benefitIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.75rem;
+  height: 3.75rem;
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+}
+
+.benefitIconImage {
+  object-fit: contain;
+}
+
+.benefitText {
+  position: relative;
+  z-index: 1;
+  max-width: 10rem;
+  text-wrap: balance;
+  font-size: 1rem;
+}
+
+.nearbyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 26rem);
+  gap: 1.5rem;
+  margin: 3rem auto 0;
+  color: var(--color-orange);
+}
+
+.nearbyGroup h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+
+.nearbyGroup ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.complimentaryTour {
+  margin-top: 3rem;
+  color: var(--color-orange);
+  text-align: center;
+}
+
+.complimentaryTour h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.complimentaryTour p {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+@media (min-width: 64rem) {
+  .highlightsContent {
+    width: calc(100% - 50rem);
+    max-width: 52rem;
+    padding-block: 5rem 4rem;
+  }
+
+  .benefitGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .nearbyGrid {
+    width: min(100%, 34rem);
+    margin-top: 4rem;
+  }
+
+  .nearbyGroup h3 {
+    font-size: 1.3rem;
+  }
+
+  .nearbyGroup ul {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
+.payment {
+  background: #fff;
+  color: #111;
+}
+
+.paymentInner {
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  margin-inline: auto;
+  padding-block: 4rem 3rem;
+}
+
+.paymentTitle {
+  margin-bottom: 2rem;
+  color: var(--color-blue);
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.paymentSteps {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paymentStep {
+  display: grid;
+  grid-template-columns: 2.625rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+}
+
+.paymentNumber {
+  display: grid;
+  width: 2.625rem;
+  height: 2.625rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-blue);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.paymentText {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.paymentContact {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.paymentButton {
+  display: inline-flex;
+  min-width: 13.75rem;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-blue);
+  border-radius: 0.5rem;
+  background: var(--color-blue);
+  box-shadow: inset 0 0 0 2px #fff;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.paymentNote {
+  max-width: 22rem;
+  margin: 1.25rem auto 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .paymentInner {
+    max-width: 32rem;
+    padding-block: 5rem 4rem;
+  }
+}
