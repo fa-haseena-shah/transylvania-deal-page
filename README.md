@@ -20,7 +20,7 @@ This is an original holiday deal page for a UK audience for which research-backe
 * Clearly defined the problem by creating user personas for understanding different needs, goals, and challenges of various users
 
 ### Ideate
-* Curated the user flow and information architecture for the page
+* Brainstormed ideas to solve the problem and achieve our defined goals
 
 ### Design
 * Create the low-fidelity wireframes,
@@ -39,7 +39,7 @@ View my in-depth design thought process [here](**)
 - **Image config:** `next.config.js` allows remote images from `cdn.techneapp-staging.site` and `lcv-staging.site`, which is what was in the supplied JSON. Without these, the images would be blocked by `next/image`
 - Only full image URLs from the JSON are used. Relative paths are not given a guessed host and use a fallback solid-color instead.
 
-## Screenshots
+## Demo
 ### Mobile
 ### Desktop
 
