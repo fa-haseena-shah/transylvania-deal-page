@@ -10,6 +10,7 @@ import Excursions from "./ui/Excursions";
 import Highlights from "./ui/Highlights";
 import Payment from "./ui/Payment";
 import Faq from "./ui/Faq";
+import Testimonials from "./ui/Testimonials";
 import deal from "./lib/deal-page-data.json";
 
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
         <Divider />
         <Payment content={deal.payment} />
         <Faq faqs={deal.dealFAQs} />
+        <Testimonials />
       </main>
     </>
   );

@@ -1165,7 +1165,6 @@
 .paymentTitle {
   margin-bottom: 2rem;
   color: var(--color-blue);
-  font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
@@ -1214,18 +1213,11 @@
   display: inline-flex;
   min-width: 13.75rem;
   min-height: 4.5rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
   border: 2px solid var(--color-blue);
-  border-radius: 0.5rem;
   background: var(--color-blue);
-  box-shadow: inset 0 0 0 2px #fff;
-  color: #fff;
+  box-shadow: inset 0 0 0 2.7px var(--page-bg);
+  color: var(--page-bg);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  text-decoration: none;
-  text-transform: uppercase;
 }
 
 .paymentNote {
@@ -1253,4 +1245,128 @@
   max-width: 49rem;
   gap: 1.125rem;
   margin-inline: auto;
+}
+
+.testimonials {
+  overflow: hidden;
+  background: #fff;
+}
+
+.testimonialsInner {
+  width: calc(100% - 2rem);
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-block: 2.5rem 4rem;
+}
+
+.testimonialsTitle {
+  margin-bottom: 4rem;
+  margin-top: 2.5rem;
+  color: var(--color-orange);
+  line-height: 1.1;
+}
+
+.testimonialCarousel {
+  display: grid;
+  width: calc(100% - 2rem);
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: 1.4rem;
+  margin-left: -0.5rem;
+}
+
+.testimonialArrow {
+  display: grid;
+  width: 2rem;
+  height: 3rem;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-orange);
+  cursor: pointer;
+}
+
+.testimonialArrow::before {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: solid currentColor;
+  border-width: 0 0.25rem 0.25rem 0;
+  border-radius: 0.15rem;
+  content: "";
+}
+
+.testimonialPrevious::before {
+  transform: rotate(135deg);
+}
+
+.testimonialNext::before {
+  transform: rotate(-45deg);
+}
+
+.testimonialQuote {
+  position: relative;
+  display: flex;
+  min-height: 11rem;
+  align-items: center;
+  padding-left: 7.5rem;
+  border: 0;
+}
+
+.testimonialQuoteMark {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  color: #f1dfc5;
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.testimonialQuote p {
+  font-size: clamp(1.25rem, 3.2vw, 2rem);
+  line-height: 1.2;
+  text-align: justify;
+}
+
+@media (max-width: 48rem) {
+  .testimonialsInner {
+    padding-block: 2rem 3rem;
+  }
+
+  .testimonialsTitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .testimonialCarousel {
+    width: calc(100% - 1.5rem);
+    grid-template-columns: 1.5rem minmax(0, 1fr) 1.5rem;
+    gap: 0.5rem;
+    margin-left: -1rem;
+  }
+
+  .testimonialQuote {
+    min-height: 8rem;
+    padding-left: 2.5rem;
+  }
+
+  .testimonialQuoteMark {
+    top: -0.75rem;
+    font-size: 5rem;
+  }
+
+  .testimonialQuote p {
+    font-size: 1.3rem;
+  }
+
+  .testimonialArrow {
+    width: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .testimonialQuote p {
+    font-size: 1.3rem;
+  }
 }

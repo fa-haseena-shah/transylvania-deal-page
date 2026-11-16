@@ -53,7 +53,7 @@ export default function Payment({ content = "" }) {
         </ol>
 
         <div className={styles.paymentContact}>
-          <Button className={styles.paymentButton} href="#enquire">Reach Out</Button>
+          <Button className={`${styles.btn} ${styles.paymentButton}`}href="#enquire">Reach Out</Button>
           {note && <p className={styles.paymentNote}>{note}</p>}
         </div>
       </div>
