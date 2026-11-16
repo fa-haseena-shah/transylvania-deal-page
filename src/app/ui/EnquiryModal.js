@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Title from "./Title";
 import styles from "./styles/deal-page.module.css";
@@ -31,7 +31,14 @@ export default function EnquiryModal({
   email = "email@lcv.com",
 }) {
   const dialogRef = useRef(null);
+  const nameInputRef = useRef(null);
+  const confirmationRef = useRef(null);
+  const [submitted, setSubmitted] = useState(false);
   const displayTitle = formatDealTitle(title);
+
+  useEffect(() => {
+    if (submitted) confirmationRef.current?.focus();
+  }, [submitted]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -42,6 +49,7 @@ export default function EnquiryModal({
         document.body.style.overflow = originalBodyOverflow;
         originalBodyOverflow = undefined;
       }
+      setSubmitted(false);
       clearEnquiryHash();
     };
 
@@ -51,6 +59,7 @@ export default function EnquiryModal({
           originalBodyOverflow = document.body.style.overflow;
           document.body.style.overflow = "hidden";
           dialog.showModal();
+          nameInputRef.current?.focus();
         }
       } else if (dialog.open) {
         dialog.close();
@@ -73,18 +82,7 @@ export default function EnquiryModal({
 
   function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const body = [
-      `Deal: ${title}`,
-      `Name: ${formData.get("name")}`,
-      `Email: ${formData.get("email")}`,
-      `Phone: ${formData.get("phone") || "Not provided"}`,
-      `Message: ${formData.get("message") || "Not provided"}`,
-      `Preferred contact: ${formData.get("contactPreference")}`,
-    ].join("\n");
-    const subject = `Enquiry about ${title}`;
-
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
   }
 
   return (
@@ -114,6 +112,22 @@ export default function EnquiryModal({
             <Title title={TITLE} id="enquiry-title" className="sectionTitle">Reach out to us!</Title>
           </div>
 
+          {submitted ? (
+            <div
+              ref={confirmationRef}
+              className={styles.enquiryConfirmation}
+              role="status"
+              aria-live="polite"
+              tabIndex={-1}
+            >
+              <h3>
+                Thanks! <i className="bi bi-emoji-smile" />
+              </h3>
+              <p>
+                We will be in touch with you soon.
+              </p>
+            </div>
+          ) : (
           <form className={styles.enquiryForm} onSubmit={handleSubmit}>
             <div className={styles.enquiryDealRow}>
               <label htmlFor="enquiry-deal">Inquiring about:</label>
@@ -131,6 +145,7 @@ export default function EnquiryModal({
 
             <div className={styles.enquiryFieldGrid}>
               <input
+                ref={nameInputRef}
                 className={styles.enquiryControl}
                 type="text"
                 name="name"
@@ -153,8 +168,11 @@ export default function EnquiryModal({
                 type="tel"
                 name="phone"
                 autoComplete="tel"
+                inputMode="tel"
+                pattern="(?=(?:[^0-9]*[0-9]){7,15}[^0-9]*$)\+?(?:[0-9]|\(|\s)(?:[0-9]|\(|\)|\.|\s|-)*[0-9]"
                 placeholder="Phone"
                 aria-label="Phone"
+                title="Please enter 7–15 digits."
               />
             </div>
 
@@ -189,6 +207,7 @@ export default function EnquiryModal({
               </Button>
             </div>
           </form>
+          )}
         </div>
       </div>
     </dialog>

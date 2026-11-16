@@ -510,8 +510,7 @@
 }
 
 .dropdownTrigger:focus-visible {
-  outline-color: var(--color-orange);
-  outline-offset: 3px;
+  background-color: var(--color-beige);
 }
 
 .dropdownItemOpen .dropdownTrigger {
@@ -835,13 +834,6 @@
 
 .destinationFacts strong {
   font-weight: 700;
-}
-
-.destinationKnowMore {
-  display: inline-block;
-  margin-top: 3rem;
-  color: var(--color-blue);
-  font-size: clamp(1.15rem, 2.8vw, 1.5rem);
 }
 
 .destinationVideo {
@@ -1168,6 +1160,13 @@
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
+}
+
+.paymentIntro {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .paymentSteps {
@@ -1642,6 +1641,11 @@
   background: rgb(0 0 0 / 52%);
 }
 
+.enquiryDialog :focus-visible {
+  background-color: var(--color-beige);
+  border: solid 2px var(--color-blue);
+}
+
 .enquiryShell {
   display: grid;
   width: 100%;
@@ -1834,6 +1838,19 @@
   color: var(--page-bg);
   cursor: pointer;
   font-size: 1.35rem;
+}
+
+.enquiryConfirmation {
+  max-width: 32rem;
+  margin-inline: auto;
+  padding: 2rem;
+  color: var(--color-blue);
+  text-align: center;
+}
+
+.enquiryConfirmation h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
 }
 
 @media (max-width: 40rem) {

@@ -47,10 +47,28 @@ function parseListItems(html = "") {
   }));
 }
 
-function getImageSource(image) {
-  if (!image) return null;
-  if (/^https?:\/\//i.test(image)) return image;
-  return `https://cdn.techneapp-staging.site/${image.replace(/^\/+/, "")}`;
+function getHighlightImage(image, referenceImage) {
+  if (typeof image !== "string" || typeof referenceImage !== "string") {
+    return null;
+  }
+
+  const origin = /^(https:\/\/[^/]+)\//i.exec(referenceImage)?.[1];
+  if (!origin) return null;
+
+  const value = image.trim();
+  const relativePath = value.startsWith(`${origin}/`)
+    ? value.slice(origin.length + 1)
+    : value;
+  const pathSegments = relativePath.split("/");
+
+  if (
+    !/^deals\/[A-Za-z0-9._/-]+$/.test(relativePath) ||
+    pathSegments.some((segment) => !segment || segment === "." || segment === "..")
+  ) {
+    return null;
+  }
+
+  return `${origin}/${relativePath}`;
 }
 
 function BenefitIcon({ type }) {
@@ -65,7 +83,7 @@ function BenefitIcon({ type }) {
   );
 }
 
-export default function Highlights({ highlight }) {
+export default function Highlights({ highlight, referenceImage }) {
   const items = parseListItems(highlight?.content);
   const findItem = (match) =>
     items.find((item) => item.text.toLowerCase().includes(match));
@@ -78,7 +96,7 @@ export default function Highlights({ highlight }) {
   const attractions = findItem("nearby attractions");
   const tour = findItem("complimentary tour");
   const [tourLabel, ...tourTitle] = (tour?.text || "").split(":");
-  const imageSrc = getImageSource(highlight?.image);
+  const imageSrc = getHighlightImage(highlight?.image, referenceImage);
 
   return (
     <section

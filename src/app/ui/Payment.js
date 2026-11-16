@@ -15,6 +15,9 @@ function stripMarkup(value) {
 }
 
 function parsePaymentContent(content = "") {
+  const introMatch = content.match(
+    /<p\b[^>]*>([\s\S]*?)<\/p>\s*<ul\b/i,
+  );
   const steps = Array.from(
     content.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi),
     (match) => stripMarkup(match[1]),
@@ -24,11 +27,15 @@ function parsePaymentContent(content = "") {
     (match) => stripMarkup(match[1]),
   );
 
-  return { steps, note: paragraphs.at(-1) || "" };
+  return {
+    intro: stripMarkup(introMatch?.[1] || ""),
+    steps,
+    note: paragraphs.at(-1) || "",
+  };
 }
 
 export default function Payment({ content = "" }) {
-  const { steps, note } = parsePaymentContent(content);
+  const { intro, steps, note } = parsePaymentContent(content);
 
   if (!content) return null;
 
@@ -40,6 +47,8 @@ export default function Payment({ content = "" }) {
     >
       <div className={styles.paymentInner}>
         <Title title={TITLE} className={`${styles.sectionTitle} ${styles.paymentTitle}`} id="payment-title">Payment</Title>
+
+        {intro && <p className={styles.paymentIntro}>{intro}</p>}
 
         <ol className={styles.paymentSteps}>
           {steps.map((step, index) => (

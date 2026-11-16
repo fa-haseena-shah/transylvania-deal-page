@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "HOME", href: "#" },
   { label: "DESTINATIONS", href: "#" },
   { label: "DEALS", href: "#" },
-  { label: "CONTACT", href: "#" },
+  { label: "CONTACT", href: "#enquiry" },
 ];
 
 export default function Navbar() {

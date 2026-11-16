@@ -42,15 +42,18 @@ export default function Home() {
         />
         <Excursions content={deal.excursions} 
           defaultGroup={deal.dealDestinations?.[0]?.destination?.name} />
-        <Highlights highlight={deal.highlight} />
+        <Highlights
+          highlight={deal.highlight}
+          referenceImage={deal.heroImages[0]?.path}
+        />
         <Divider />
         <Payment content={deal.payment} />
         <Faq faqs={deal.dealFAQs} />
         <Testimonials />
         <hr></hr>
         <FinePrint content={deal.finePrint} />
-        <Footer />
       </main>
+      <Footer />
       <EnquiryModal title={deal.title} />
     </>
   );

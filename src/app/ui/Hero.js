@@ -23,7 +23,7 @@ function splitTitle(title) {
 const CTA_LABEL = "book now";
 const CTA_TARGET = "#enquiry";
 const FALLBACK_ALT =
-  "Bran Castle on a hilltop surrounded by green forest near Transylvanian Alps";
+  "Scenic views of Transylvania, Romania, with castles, forests and historic towns";
 
 export default function Hero({ title, images = [], price, originalPrice, priceType }) {
   const { lead, emphasis } = splitTitle(title);

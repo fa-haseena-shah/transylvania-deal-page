@@ -55,11 +55,6 @@ export default function Destinations({ dealDestination, videoUrl }) {
           </p>
         </div>
 
-        <p
-          className={styles.destinationKnowMore}>
-          Know More!
-        </p>
-
         <div className={styles.destinationVideo}>
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${videoId}`}
