@@ -30,13 +30,79 @@ This is an original holiday deal page for a UK audience for which research-backe
 View my in-depth design thought process [here](**)
 
 ## Development
-* Content is loaded based on the data from `deal-page-data.json`. In places where the provided HTML was faulty, relevant parser functions were written in JavaScript and dangerouslySetHTML was used.
-* Reusable components i.e. Dropdown, Carousel, SafeImage, Title, Button were created
-* Each section i.e. Hero, Overview, Highlights, Itinerary, Hotel, Destinations, Excursions, Payment, Fineprint, FAQs, Testimonials has its own components, re-using the above mentioned ones
-* In page.js, abstraction is observed and the page was easily built by simply importing the component then using its relevant tag in my preferred section order.
-* Developed mobile-first and wrote media queries for medium and desktop screens
+- Content is rendered from `deal-page-data.json` (placed in libs folder). Where the supplied HTML needed restructuring (e.g. excursions, highlights, payment, itinerary headings), I wrote small parser functions in JavaScript. Some supplied HTML that needed no restructuring is rendered with `dangerouslySetInnerHTML`
+- Reusable components (e.g. Dropdown, Carousel, SafeImage, Title, Button) were created and shared across sections where relevant.
+- Each section (Hero, Overview, Highlights, Itinerary, Hotel, Destinations, Excursions, Payment, Fine Print, FAQs, Testimonials) has its own component.
+- The enquiry form opens in a native <dialog> modal from any `#enquire` CTA.
+- `page.js` imports the section components and renders them in my chosen order, passing in the relevant data.
+- Styling is primarily mobile-first, with media queries for medium and desktop screens.
+- **Image config:** `next.config.js` allows remote images from `cdn.techneapp-staging.site` and `lcv-staging.site`, which is what was in the supplied JSON. Without these, the images would be blocked by `next/image`
+- Only full image URLs from the JSON are used. Relative paths are not given a guessed host and use a fallback solid-color instead.
+
+## Screenshots
+### Mobile
+### Desktop
 
 **Total Time Spent** 
 - Research and Ideation : 1 day
 - Design and Wireframing : 1 day
 - Development : 3 days
+
+## Pre-Requisites
+- Node.js v24 or later - [Download Node](https://nodejs.org/en/download)
+- npm 11.2
+- Git - [Download Git](https://git-scm.com/install/)
+
+*Or download [Homebrew](https://brew.sh/) and run these commands to install these prerequisites:
+```bash
+brew install git
+brew install node
+node -v
+npm -v
+```
+
+## How to Install & Setup
+1(a). Clone the repo from your VSCode terminal,
+```bash
+git clone https://github.com/fa-haseena-shah/transylvania-deal-page.git
+```
+
+OR
+
+1(b). Click the <> Code dropdown and download the ZIP
+
+
+2. Enter the project folder and run the build commands,
+```bash
+cd transylvania-deal-page
+npm install
+npm run dev        # local build
+npm run build      # production build
+npm run start      # serve the production build
+```
+
+## Deployment Notes
+* Imported this Git repo as a new project into Netlify and was auto-deploy from `main` branch
+* **Build command:** `npm run build`
+- **Publish directory:** left as the Netlify default for Next.js
+- **Node version:** developed locally on Node v26.13.1, Netlify built with Node 24.22.2
+- **Environment variables:** none required
+* Deployment happened smoothly without any issues, referring to [Tutorials by Manizha & Ryan](https://www.youtube.com/watch?v=XE2ASE7N4ho)
+* Live site was checked across 3 mobiles phone () and desktops
+
+## Brief Test Record
+| Check                                                                                                     | Result |
+|-----------------------------------------------------------------------------------------------------------|--------|
+| Layout, no horizontal overflow across 360px, 768px, 1024px                                                | Pass   |
+| Hamburger menu opens and closes                                                                           | Pass   |
+| Accordions for itinerary, FAQ and fineprint work                                                          | Pass   |
+| CTA opens enquiry modal, closes properly, and relevant errors shown                                       | Pass   |
+| Live site checked (Samsung Internet, S24 / Safari, iPhone / Google Chrome, MacBook / Firefox, Windows) | Pass   |
+
+## Limitations
+* Navbar and footer were not required sections but implemented for completeness since there are essential parts of a web-page. Navbar links (except contact) do not work since those additional pages were not developed.
+* Footer content is not from the supplied data; it was obtained from [here](https://www.lowcostvibes.com/about-us)
+* Enquiry form is simulated with no backend
+* There is an overlap in some excursion data which was disregarded
+* Testimonials and contact details are sample content
+* Ideally, UAT must be performed on our target UK audience but since that is not available at this stage, I omit it.
