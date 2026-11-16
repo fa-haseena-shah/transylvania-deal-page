@@ -40,6 +40,12 @@
 
 html { scroll-behavior: smooth; }
 
+@media (max-width: 375px) {
+  html {
+    font-size: clamp(13px, 4.2667vw, 16px);
+  }
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
