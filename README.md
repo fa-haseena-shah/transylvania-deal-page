@@ -28,7 +28,7 @@ This is an original holiday deal page for a UK audience for which research-backe
 * Decided on visual identities by creating a moodboard, selecting typography and color palette,
 * Create high-fidelity wireframes using this design kit
 
-View my in-depth design thought process [here](**)
+View my in-depth design thought process [here](https://drive.google.com/file/d/1APqioOxB9npHjkGKr1TQbdepuf9JbnCY/view?usp=sharing)
 
 ## Development
 - Content is rendered from `deal-page-data.json` (placed in libs folder). Where the supplied HTML needed restructuring (e.g. excursions, highlights, payment, itinerary headings), I wrote small parser functions in JavaScript. Some supplied HTML that needed no restructuring is rendered with `dangerouslySetInnerHTML`
