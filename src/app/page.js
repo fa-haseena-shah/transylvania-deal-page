@@ -11,6 +11,9 @@ import Highlights from "./ui/Highlights";
 import Payment from "./ui/Payment";
 import Faq from "./ui/Faq";
 import Testimonials from "./ui/Testimonials";
+import FinePrint from "./ui/FinePrint";
+import Footer from "./ui/Footer";
+import EnquiryModal from "./ui/EnquiryModal";
 import deal from "./lib/deal-page-data.json";
 
 export default function Home() {
@@ -44,7 +47,11 @@ export default function Home() {
         <Payment content={deal.payment} />
         <Faq faqs={deal.dealFAQs} />
         <Testimonials />
+        <hr></hr>
+        <FinePrint content={deal.finePrint} />
+        <Footer />
       </main>
+      <EnquiryModal title={deal.title} />
     </>
   );
 }

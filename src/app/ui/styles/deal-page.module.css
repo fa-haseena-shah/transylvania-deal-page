@@ -601,7 +601,7 @@
 
 .sectionTitle {
   color: var(--color-red);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -610,7 +610,7 @@
   width: 100%;
   aspect-ratio: 1512 / 199;
   margin-block: var(--space-6, 1.5rem);
-  margin-top: 5rem;
+  margin-top: 1.8rem;
   background-image: url("/motif-divider.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -1368,5 +1368,538 @@
 @media (min-width: 64rem) {
   .testimonialQuote p {
     font-size: 1.3rem;
+  }
+}
+
+.finePrint {
+  padding-block: 0.75rem 1rem;
+}
+
+.finePrint .dropdownList {
+  width: 100%;
+  gap: 0;
+  margin: 0;
+}
+
+.finePrint .dropdownTrigger {
+  min-height: 0;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-blue);
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.finePrint .dropdownTrigger:hover,
+.finePrint .dropdownItemOpen .dropdownTrigger {
+  background: transparent;
+}
+
+.finePrint .dropdownChevron {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-width: 0 2px 2px 0;
+}
+
+.finePrint .dropdownPanel {
+  border: 0;
+  background: transparent;
+}
+
+.finePrint .dropdownContent {
+  padding: 0 1.25rem 1rem;
+  color: var(--color-blue);
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.finePrint .dropdownContent a {
+  color: var(--color-orange);
+  font-weight: 600;
+}
+
+.finePrint .dropdownContent ul {
+  margin: 0;
+  padding-left: 0.75rem;
+}
+
+.finePrint .dropdownHeading {
+  margin: 1rem;
+  font: inherit;
+}
+
+@media (min-width: 64rem) {
+  .finePrint .dropdownList {
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+}
+
+.footer {
+  border-top: 1px solid var(--page-bg);
+  background: var(--color-blue);
+  color: var(--footer-text);
+}
+
+.footerInner {
+  display: grid;
+  width: calc(100% - 4rem);
+  max-width: 62rem;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  gap: 4.5rem;
+  margin-inline: auto;
+  padding-block: 4.5rem 5rem;
+}
+
+.footerHeading {
+  margin-bottom: 0.75rem;
+  color: var(--footer-text);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.footerContactTitle {
+  margin-bottom: 1.75rem;
+  font-size: 1.8rem;
+}
+
+.footerContactList {
+  margin: 0;
+}
+
+.footerContactRow {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid rgb(190 190 190 / 35%);
+}
+
+.footerContactRow dt {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.footerContactRow dd {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footerContactRow a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footerAbout p {
+  font-size: 1.05rem;
+  letter-spacing: 0.025em;
+  line-height: 1.35;
+  text-align: justify;
+}
+
+.footerSocialSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footerSocials {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footerSocials span {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.footerSocialIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footerButton {
+  display: inline-flex;
+  min-width: 16rem;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5.75rem;
+  padding: 0.9rem 1.5rem;
+  border: 2px solid var(--color-red);
+  border-radius: 0.5rem;
+  background: var(--color-red);
+  box-shadow: inset 0 0 0 2px var(--color-red),
+    inset 0 0 0 4px var(--color-beige);
+  color: var(--color-beige);
+  font-family: var(--font-heading);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.footerDivider {
+  margin: 0;
+  height: 3.5rem;
+}
+
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  .footerInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .footerAbout {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .footerSocialSection {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .footerButton {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .footerInner {
+    width: calc(100% - 2rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    padding-block: 3rem;
+  }
+
+  .footerInner > section {
+    text-align: center;
+  }
+
+  .footerContactTitle {
+    font-size: 1.5rem;
+  }
+
+  .footerContactRow {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.35rem;
+    text-align: center;
+  }
+
+  .footerContactRow dd {
+    margin-inline: 0;
+  }
+
+  .footerAbout p {
+    text-align: center;
+  }
+
+  .footerSocialSection {
+    align-items: center;
+  }
+
+  .footerSocials {
+    gap: 2.5rem;
+  }
+
+  .footerButton {
+    margin-top: 2rem;
+  }
+}
+
+.enquiryDialog {
+  position: fixed;
+  inset: 0;
+  width: min(48rem, calc(100vw - 2rem));
+  height: min(40rem, calc(100dvh - 2rem));
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--page-bg);
+  color: #242424;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 30%);
+}
+
+.enquiryDialog::backdrop {
+  background: rgb(0 0 0 / 52%);
+}
+
+.enquiryShell {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.enquiryTopbar {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  gap: clamp(2rem, 7vw, 4rem);
+  padding-inline: clamp(1rem, 7vw, 4rem);
+  background: var(--color-blue);
+  color: var(--page-bg);
+}
+
+.enquiryTopbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.enquiryClose {
+  position: relative;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.enquiryClose::before,
+.enquiryClose::after {
+  position: absolute;
+  width: 1.75rem;
+  height: 0.3rem;
+  border-radius: 1rem;
+  background: currentColor;
+  content: "";
+}
+
+.enquiryClose::before {
+  transform: rotate(45deg);
+}
+
+.enquiryClose::after {
+  transform: rotate(-45deg);
+}
+
+.enquiryContent {
+  display: flex;
+  width: min(calc(100% - 2rem), 43rem);
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.enquiryIntro {
+  text-align: center;
+}
+
+.enquiryIntro h2 {
+  color: var(--color-blue);
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.enquiryDealRow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.enquirySelectWrap {
+  position: relative;
+}
+
+.enquirySelectWrap::after {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: solid var(--color-red);
+  border-width: 0 0.2rem 0.2rem 0;
+  content: "";
+  pointer-events: none;
+  transform: translateY(-70%) rotate(45deg);
+}
+
+.enquiryControl {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--color-red);
+  border-radius: 0.3rem;
+  background: var(--page-bg);
+  color: var(--color-red);
+}
+
+.enquiryControl::placeholder {
+  color: #bdb8ae;
+  opacity: 1;
+}
+
+.enquirySelectWrap .enquiryControl {
+  padding-right: 2.5rem;
+  appearance: none;
+  text-transform: capitalize;
+}
+
+.enquiryFieldGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.enquiryMessage {
+  min-height: 6.7rem;
+  resize: vertical;
+}
+
+.enquiryFormFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.enquiryPreferences {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.enquiryPreferences legend {
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.enquiryPreferenceOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.enquiryPreferenceOptions label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-red);
+  font-size: 0.9rem;
+}
+
+.enquiryPreferenceOptions input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--color-red);
+}
+
+.enquirySubmit {
+  display: inline-flex;
+  min-width: 14rem;
+  min-height: 4.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--color-blue);
+  border-radius: 0.5rem;
+  background: var(--color-blue);
+  box-shadow: inset 0 0 0 2px var(--color-blue),
+    inset 0 0 0 4px var(--page-bg);
+  color: var(--page-bg);
+  cursor: pointer;
+  font-size: 1.35rem;
+}
+
+@media (max-width: 40rem) {
+  .enquiryDialog {
+    width: calc(100vw - 1rem);
+    height: calc(100dvh - 1rem);
+    max-width: none;
+    max-height: none;
+    border-radius: 0.5rem;
+  }
+
+  .enquiryTopbar {
+    min-height: 4rem;
+    gap: 1.5rem;
+    padding-inline: 1rem;
+  }
+
+  .enquiryContent {
+    width: calc(100% - 2rem);
+    justify-content: flex-start;
+    padding-block: 2rem;
+  }
+
+  .enquiryIntro {
+    margin-bottom: 1.5rem;
+  }
+
+  .enquiryIntro p {
+    font-size: 1rem;
+  }
+
+  .enquiryIntro h2 {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+
+  .enquiryDealRow,
+  .enquiryFieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .enquiryDealRow {
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .enquiryFieldGrid {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .enquiryFormFooter {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1rem;
+  }
+
+  .enquiryPreferences legend {
+    text-align: center;
+  }
+
+  .enquiryPreferenceOptions {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .enquirySubmit {
+    align-self: center;
   }
 }

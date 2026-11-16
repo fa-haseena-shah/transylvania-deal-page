@@ -21,7 +21,7 @@ function splitTitle(title) {
 }
 
 const CTA_LABEL = "book now";
-const CTA_TARGET = "#enquire"; 
+const CTA_TARGET = "#enquiry";
 const FALLBACK_ALT =
   "Bran Castle on a hilltop surrounded by green forest near Transylvanian Alps";
 
