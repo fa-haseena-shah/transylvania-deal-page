@@ -10,6 +10,8 @@ This is an original holiday deal page for a UK audience for which research-backe
 * **Technology**: Next.js, React, CSS, Netlify
 * **Design Tools**: Figma
 
+This project is live. Check it out [here](https://illustrious-meringue-3f5cee.netlify.app/) !
+
 ## Design Process
 <img width="1218" height="355" alt="Screenshot 2026-11-16 at 15 11 35" src="https://github.com/user-attachments/assets/4c2e512b-548e-47ad-a52e-e34301365f35" />
 
